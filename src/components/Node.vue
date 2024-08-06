@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     position () {
-      return util.isSafari() ? 'static': 'relative'
+      return 'relative'
     }
   },
   mounted () {

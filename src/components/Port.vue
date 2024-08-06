@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       offset: { x: 0, y: 0 },
-      position: util.isSafari() ? 'static': 'relative'
+      position: 'relative'
     }
   },
   mounted () {

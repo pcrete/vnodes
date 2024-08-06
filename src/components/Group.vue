@@ -49,7 +49,7 @@ export default {
       width: `calc(100% - ${vm.margin * 2}px)`,
       height: `calc(100% - ${vm.margin * 2}px)`
     }),
-    position: () => util.isSafari() ? 'static': 'absolute'
+    position: () => 'absolute'
   },
   methods: {
     onDrag ({ x,y }) {
