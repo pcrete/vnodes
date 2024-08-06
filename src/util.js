@@ -220,5 +220,5 @@ export default {
   boxBoxes,
   lineLine,
   lineRect,
-  isSafari
+  // isSafari
 }
