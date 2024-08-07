@@ -26,7 +26,6 @@ export default {
   data() {
     return {
       offset: { x: 0, y: 0 },
-      position: 'relative'
     }
   },
   mounted () {
@@ -68,6 +67,6 @@ export default {
 
 <style>
 .port {
-  position: v-bind("position");
+  position: relative;
 }
 </style>

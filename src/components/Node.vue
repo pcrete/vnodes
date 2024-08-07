@@ -53,11 +53,7 @@ export default {
       default: false
     },
   },
-  computed: {
-    position () {
-      return 'relative'
-    }
-  },
+  computed: {},
   mounted () {
     if (this.fit) {
       this.fitContent()
@@ -88,7 +84,7 @@ export default {
 
 <style>
 .node .content {
-  position: v-bind("position");
+  position: relative;
   white-space: nowrap;
   width: fit-content;
 }

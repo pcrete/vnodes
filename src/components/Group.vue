@@ -49,7 +49,6 @@ export default {
       width: `calc(100% - ${vm.margin * 2}px)`,
       height: `calc(100% - ${vm.margin * 2}px)`
     }),
-    position: () => 'absolute'
   },
   methods: {
     onDrag ({ x,y }) {
@@ -73,7 +72,7 @@ export default {
 .group .content {
   width: 100%;
   height: 100%;
-  position: v-bind('position');
+  position: absolute;
   border-radius: 7px;
   background-color: rgba(100, 100, 100, .25);
   display: inline-block;
