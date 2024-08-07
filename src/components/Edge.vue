@@ -14,6 +14,10 @@ export default {
     },
     nodes: { // graph nodes reference
       type: Array,
+    },
+    isERD: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -46,10 +50,18 @@ export default {
     toAnchor: vm => vm.parseAnchor(vm.data.toAnchor, vm.toNode),
 
     pos () {
-      let x1 = this.fromNode.x + (this.fromAnchor.x || 0)
+      let x1f = 0, x2f = 0;
+      if (this.isERD) {
+        x1f = this.data.marker_start ? 35 : 0
+        x2f = this.data.marker_end ? 45 : 0
+      }
+
+      let x1 = this.fromNode.x + (this.fromAnchor.x || 0) + x1f
       let y1 = this.fromNode.y + (this.fromAnchor.y || 0)
-      let x2 = this.toNode.x + (this.toAnchor.x || 0)
+      let x2 = this.toNode.x + (this.toAnchor.x || 0) - x2f
       let y2 = this.toNode.y + (this.toAnchor.y || 0)
+
+      // console.log('fromAnchor', this.fromNode, this.isERD)
 
       if (this.fromAnchor && this.fromAnchor.snap) {
         if (this.fromAnchor.snap === 'circle') {
