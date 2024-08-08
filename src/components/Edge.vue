@@ -52,8 +52,8 @@ export default {
     pos () {
       let x1f = 0, x2f = 0;
       if (this.isERD) {
-        x1f = this.data.marker_start ? 35 : 0
-        x2f = this.data.marker_end ? 45 : 0
+        x1f = this.data.marker_start ? 52 : 0
+        x2f = this.data.marker_end ? 47 : 0
       }
 
       let x1 = this.fromNode.x + (this.fromAnchor.x || 0) + x1f
