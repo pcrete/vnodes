@@ -17,19 +17,19 @@
     :id="marker.id" orient="auto"
     :markerWidth="15"
     :markerHeight="15"
-    fill="none" refX="7.3" refY="5">
-    <path d="M 3 5 L 0 5 M 3 2.5 L 3 7.5 M 5 2.5 L 5 7.5 M 5 5 L 7 5"
-      fill="none" stroke-width="0.9" stroke="green"
-      :style="`transform: scale(1);${marker.style}`"/>
+    fill="none" refX="7.8" refY="5">
+      <path d="M 3 5 L 0 5 M 3 2.5 L 3 7.5 M 5 2.5 L 5 7.5 M 5 5 L 7 5"
+        fill="none" stroke-width="0.9" stroke="green"
+        :style="`transform: scale(1);${marker.style}`"/>
     </marker>
     <marker v-if="marker.type === 'one-mandatory-end'"
     :id="marker.id" orient="auto"
     :markerWidth="15"
     :markerHeight="15"
-    fill="none" refX="1" refY="5">
-    <path d="M 5 5 L 8 5 M 5 2.5 L 5 7.5 M 3 2.5 L 3 7.5 M 3 5 L 1 5"
-      fill="none" stroke-width="1" stroke="green"
-      :style="`transform: scale(1);${marker.style}`"/>
+    fill="none" refX="0" refY="5">
+      <path d="M 5 5 L 8 5 M 5 2.5 L 5 7.5 M 3 2.5 L 3 7.5 M 3 5 L 1 5"
+        fill="none" stroke-width="1" stroke="green"
+        :style="`transform: scale(1);${marker.style}`"/>
     </marker>
 
     <!-- Many (mandatory) -->
@@ -60,9 +60,9 @@
     :markerWidth="15"
     :markerHeight="15"
     fill="none" refX="8" refY="3.2">
-    <path d="M 9 8 A 5 5 0 0 1 14 3 A 5 5 0 0 1 19 8 A 5 5 0 0 1 14 13 A 5 5 0 0 1 9 8 Z M 0 8 L 9 8 M 19 8 M 5 3 L 5 13"
-      fill="none" stroke-width="2" stroke="green"
-      :style="`transform: scale(0.4);${marker.style}`"/>
+      <path d="M 9 8 A 5 5 0 0 1 14 3 A 5 5 0 0 1 19 8 A 5 5 0 0 1 14 13 A 5 5 0 0 1 9 8 Z M 0 8 L 9 8 M 19 8 M 5 3 L 5 13"
+        fill="none" stroke-width="2" stroke="green"
+        :style="`transform: scale(0.4);${marker.style}`"/>
     </marker>
     <marker v-if="marker.type === 'one-optional-end'"
     :id="marker.id" orient="auto"
@@ -80,9 +80,9 @@
     :markerWidth="15"
     :markerHeight="15"
     fill="none" refX="7.6" refY="3.2">
-    <path d="M 9 8 A 5 5 0 0 1 14 3 A 5 5 0 0 1 19 8 A 5 5 0 0 1 14 13 A 5 5 0 0 1 9 8 Z M 0 8 L 9 8 M 19 8 M 0 2 L 9 8 L 0 14"
-      fill="none" stroke-width="2" stroke="green"
-      :style="`transform: scale(0.4);${marker.style}`"/>
+      <path d="M 9 8 A 5 5 0 0 1 14 3 A 5 5 0 0 1 19 8 A 5 5 0 0 1 14 13 A 5 5 0 0 1 9 8 Z M 0 8 L 9 8 M 19 8 M 0 2 L 9 8 L 0 14"
+        fill="none" stroke-width="2" stroke="green"
+        :style="`transform: scale(0.4);${marker.style}`"/>
     </marker>
     <marker v-if="marker.type === 'many-optional-end'"
     :id="marker.id" orient="auto"
@@ -137,11 +137,11 @@
       :markerWidth="13 * marker.scale" orient="auto"
       :markerHeight="13 * marker.scale"
       fill="none" refX="5" refY="5" position="50%">
-       <path d="M 3,3 L 7,7 M 3,7 L 7,3"
+        <path d="M 3,3 L 7,7 M 3,7 L 7,3"
           fill="none" stroke="green" stroke-width="2"
           :style="`transform: scale(${marker.scale});${marker.style}`"/>
-     </marker>
-     <marker v-if="marker.type === 'arrow-slim-start'"
+      </marker>
+      <marker v-if="marker.type === 'arrow-slim-start'"
       :id="marker.id" orient="auto"
       :markerWidth="13 * marker.scale"
       :markerHeight="13 * marker.scale"
@@ -184,7 +184,7 @@ const defaults = [
 { id: 'many-optional-end', type: 'many-optional-end', style: 'stroke: #8898aa' },
 
 // default
-{ id: "default", type: "default", scale: 1, style: "stroke: #8898aa" },
+{ id: "default", type: "default", scale: 1, style: "stroke: 8898aa" },
 { id: 'arrow-start', type: 'arrow-start', scale: 0.5, style: 'fill: green' },
 { id: 'arrow-end', type: 'arrow-end', scale: 0.5, style: 'fill: green' },
 { id: 'square', type: 'square', scale: 0.5, style: 'fill: green' },

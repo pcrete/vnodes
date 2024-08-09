@@ -148,6 +148,14 @@ export default class Graph {
     return index
   }
 
+  removeEdgeById(edgeId) {
+    const index = this.edges.findIndex(edge => edge.id === edgeId);
+    if (index > -1) {
+      this.edges.splice(index, 1);
+    }
+    return index;
+  }
+
   /**
    * Force-directed layout by @emeric254
    */
