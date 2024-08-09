@@ -214,16 +214,19 @@ svg .edge {
 
 ### Markers
 
+SVG Editor: https://yqnn.github.io/svg-path-editor/
+
 TODO
-routing orth manh metro https://resources.jointjs.com/demos/routing
-theme apply demo
-markers demo
-groups demo
-edge api review
-graph tools, nodes containing edge refs or adj list etc
-graph layouts https://www.yworks.com/products/yfiles/features#layout
-layered layouts https://github.com/erikbrinkman/d3-dag
-layered layouts https://www.yworks.com/pages/layered-graph-layout
-css animations demo/theme https://www.yworks.com/products/yfiles/features
-https://www.edrawmax.com/online/en/
-https://js.cytoscape.org/
+
+- routing orth manh metro https://resources.jointjs.com/demos/routing
+- theme apply demo
+- markers demo
+- groups demo
+- edge api review
+- graph tools, nodes containing edge refs or adj list etc
+- graph layouts https://www.yworks.com/products/yfiles/features#layout
+- layered layouts https://github.com/erikbrinkman/d3-dag
+- layered layouts https://www.yworks.com/pages/layered-graph-layout
+- css animations demo/theme https://www.yworks.com/products/yfiles/features
+- https://www.edrawmax.com/online/en/
+- https://js.cytoscape.org/
