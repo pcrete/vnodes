@@ -1,6 +1,5 @@
 <template>
-  <path class="edge" :d="path" :id="data.id">
-  </path>
+  <path class="edge" :d="path" :id="data.id"/>
 </template>
 
 <script>
@@ -60,8 +59,6 @@ export default {
       let y1 = this.fromNode.y + (this.fromAnchor.y || 0)
       let x2 = this.toNode.x + (this.toAnchor.x || 0) - x2f
       let y2 = this.toNode.y + (this.toAnchor.y || 0)
-
-      // console.log('fromAnchor', this.fromNode, this.isERD)
 
       if (this.fromAnchor && this.fromAnchor.snap) {
         if (this.fromAnchor.snap === 'circle') {
