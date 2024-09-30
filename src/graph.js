@@ -14,7 +14,7 @@ export default class Graph {
     this.updateNode(node, { x: pos.x, y: pos.y })
   }
 
-  graphNodes ({ nodes, edges, type = 'basic', dir = 'right', spacing = 40 } = {}) {
+  graphNodes ({ nodes, edges, type = 'basic', dir = 'right', spacing = 40, toposort = [], chunkSize = 0 } = {}) {
     nodes = nodes || this.nodes
     edges = edges || this.edges
 
@@ -24,25 +24,68 @@ export default class Graph {
     }
 
     if (type === 'basic' || type === 'basic-invert') {
-      const visited = {}
-      const findPos = (node, parent) => {
-        if (visited[node.id]) {
-          return
+      if (!toposort.length) {
+        const visited = {}
+        const findPos = (node, parent) => {
+          if (visited[node.id]) {
+            return
+          }
+          const collisions = nodes.filter(n => !!visited[n.id])
+          const pos = util.findPosition(node, parent, dir, collisions, spacing, type === 'basic-invert')
+          node.x = pos.x
+          node.y = pos.y
+          this.updateNode(node.id, {
+            x: node.x,
+            y: node.y
+          })
+          visited[node.id] = true
+          node.children.forEach(n => findPos(n, node))
         }
-        const collisions = nodes.filter(n => !!visited[n.id])
-        const pos = util.findPosition(node, parent, dir, collisions, spacing, type === 'basic-invert')
-        node.x = pos.x
-        node.y = pos.y
-        this.updateNode(node.id, {
-          x: node.x,
-          y: node.y
-        })
-        visited[node.id] = true
-        node.children.forEach(n => findPos(n, node))
+        dag
+          .filter(node => !node.parentIds.length)
+          .forEach(node => findPos(node, null))
       }
-      dag
-        .filter(node => !node.parentIds.length)
-        .forEach(node => findPos(node, null))
+      else {
+        const spacingX = spacing + parseInt(spacing * 0.4);
+        const spacingY = spacing - parseInt(spacing * 0.4);
+
+        let startX = 0;
+        let prevStartY = 0;
+        let maxHeight = 0;
+
+        for (let layer = 0; layer < toposort.length; layer++) {
+
+          let count = 1;
+          let maxWidth = 0;
+          // vertical centering
+          let layerHeight = toposort[layer].reduce((sum, nodeId) => sum + nodes.find(n => n.id === nodeId).height + spacingY, 0);
+          let startY = maxHeight ? parseInt((maxHeight -layerHeight)/2): 0 ;
+          startY = prevStartY < 0 ? startY + prevStartY : startY;
+          prevStartY = startY;
+
+          for (let nodeId of toposort[layer]) {
+            let node = nodes.find(n => n.id === nodeId)
+            this.updateNode(node.id, {
+              x: startX,
+              y: startY,
+            });
+
+            // centering
+            if (node.width > maxWidth) maxWidth = node.width;
+            startY += node.height + spacingY;
+
+            // chunking
+            if (count % chunkSize === 0) {
+              startX += maxWidth + spacingX;
+              startY = parseInt(startY/1.5);
+            }
+            count++;
+          }
+          if (layerHeight > maxHeight) maxHeight = layerHeight;
+          startX += maxWidth + spacingX;
+
+        }
+      }
     } else
 
     if (type === 'tree') {
